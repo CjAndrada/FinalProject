@@ -2,10 +2,12 @@ import React from "react";
 import { Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import Student from "./../../assets/Student.png";
+import Headerbar from "../Headerbar";
 
 const HomePage = () => {
   return (
     <>
+      <Headerbar />
       <Grid container spacing={0} style={{}}>
         <Grid size={1} style={{}} />
         <Grid size={4} style={{}}>
@@ -37,6 +39,7 @@ const HomePage = () => {
                   backgroundColor: "#00bf63",
                   fontSize: "18px",
                   color: "black",
+                  borderRadius: "20px",
                 }}
                 variant="contained"
               >

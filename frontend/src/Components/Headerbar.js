@@ -16,14 +16,13 @@ import PersonIcon from "@mui/icons-material/Person";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import { Link } from "react-router-dom";
 
-// ✅ Now using objects with `name` and `path`
 const pages = [
-  { name: "Home", path: "/" },
+  { name: "Home", path: "/home" },
   { name: "Shop", path: "/shop" },
 ];
 
 const account = [
-  { name: "Sign In", path: "/signin" },
+  { name: "Sign In", path: "/Signup" },
   { name: "Log In", path: "/login" },
   { name: "Log Out", path: "/logout" },
 ];
@@ -58,7 +57,7 @@ const Headerbar = () => {
             variant="h5"
             noWrap
             component={Link}
-            to="/"
+            to="/home"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -69,7 +68,7 @@ const Headerbar = () => {
               textDecoration: "none",
             }}
           >
-            UniPTCgi
+            UniPTC
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -105,7 +104,7 @@ const Headerbar = () => {
             variant="h5"
             noWrap
             component={Link}
-            to="/"
+            to="/home"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -113,14 +112,19 @@ const Headerbar = () => {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "Black ",
               textDecoration: "none",
             }}
           >
-            LOGO
+            UniPTC
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page.name}
@@ -141,7 +145,7 @@ const Headerbar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Items">
-              <IconButton sx={{ p: 0, mr: 2 }}>
+              <IconButton sx={{ p: 0, mr: 2 }} component={Link} to="/Cartpage">
                 <LocalMallIcon />
               </IconButton>
             </Tooltip>

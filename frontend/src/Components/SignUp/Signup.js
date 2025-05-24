@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./LogIn.css";
+import "./Signup.css";
 import { Link } from "react-router-dom";
 
-const LogIn = () => {
-  const [emailInput, setEmailInput] = useState("");
+const Signup = () => {
+  // const [emailInput, setEmailInput] = useState("");
   const [errorLabel, setErrorLabel] = useState("");
 
   const handleEmailInput = (e) => {
@@ -24,12 +24,13 @@ const LogIn = () => {
       <div className="left-panel"></div>
 
       <div className="right-panel">
-        <h1 className="title">UniPTC</h1>
-        <h2 className="subtitle">Welcome!</h2>
-        <p className="desc">Login to your account</p>
+        <h1 className="title">Create Account</h1>
+        <p className="desc">Sign up now!</p>
 
-        <form className="login-form">
-          <label>Email:</label>
+        <form className="signup-form">
+          <label> Full Name:</label>
+          <input type="Full Name" placeholder="Enter your full name"></input>
+          <label>Email Address:</label>
           <input
             type="email"
             placeholder="Enter your email"
@@ -45,26 +46,23 @@ const LogIn = () => {
           </div>
 
           <div className="options">
-            <label>
-              <input type="checkbox" />
-              Remember me
+            <label style={{ fontSize: "13px" }}>
+              <input type="checkbox" />I accept the terns of service and privacy
+              policy
             </label>
-            <a href="/">Forgot Password?</a>
           </div>
 
-          <button type="submit" className="login-button">
-            Login
+          <button type="submit" className="signup-button">
+            Create Account
           </button>
         </form>
 
-        <div className="divider" />
-
         <p className="signup-link">
-          Not Registered Yet? <Link to="/Signup">Create an account</Link>
+          Already have an account? <Link to="/login">Sign In</Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default LogIn;
+export default Signup;
