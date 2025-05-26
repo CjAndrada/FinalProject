@@ -1,7 +1,7 @@
-// routes/checkout.js
+
 const express = require("express");
 const router = express.Router();
-const db = require("../db"); // adjust to your db connection
+const db = require("../db"); 
 
 router.post("/checkout", async (req, res) => {
   const { items, total } = req.body;

@@ -24,7 +24,7 @@ const CartPage = () => {
 
       if (response.ok) {
         alert("Order placed successfully!");
-        navigate("/"); // or a thank you page
+        navigate("/");
       } else {
         alert("Failed to place order.");
       }
