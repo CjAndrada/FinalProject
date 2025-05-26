@@ -16,6 +16,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import { Link } from "react-router-dom";
 
+
 const pages = [
   { name: "Home", path: "/home" },
   { name: "Shop", path: "/shop" },
@@ -46,7 +47,13 @@ const Headerbar = () => {
     setAnchorElUser(null);
   };
 
+  
+
+
+
   return (
+
+
     <AppBar
       position="static"
       sx={{ backgroundImage: "linear-gradient(to right, #6dbfb8, #21e486)" }}
@@ -139,6 +146,8 @@ const Headerbar = () => {
                 }}
               >
                 {page.name}
+
+                
               </Button>
             ))}
           </Box>
