@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, IconButton } from "@mui/material";
+import { Grid, IconButton, Typography } from "@mui/material";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
@@ -12,13 +12,15 @@ const ProductTile = ({
   price,
   itemId,
   onAddToCart,
-  img,
+  stock = 0, // add stock with default 0
 }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavoriteButton = (value) => {
     setIsFavorite(value);
   };
+
+  const isOutOfStock = stock <= 0;
 
   return (
     <Grid size={3}>
@@ -58,11 +60,18 @@ const ProductTile = ({
           5.0
         </div>
         <div>
-          <AddToCartButton
-            label={"Add to Cart"}
-            onClick={onAddToCart}
-            style={{ border: "1px solid" }}
-          />
+          {isOutOfStock ? (
+            <Typography color="error" variant="subtitle1" sx={{ fontWeight: "bold" }}>
+              Out of Stock
+            </Typography>
+          ) : (
+            <AddToCartButton
+              label={"Add to Cart"}
+              onClick={onAddToCart}
+              style={{ border: "1px solid" }}
+              disabled={isOutOfStock}
+            />
+          )}
         </div>
       </div>
     </Grid>
