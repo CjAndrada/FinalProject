@@ -36,6 +36,8 @@ const Signup = () => {
         username: formData.email, // or use fullname, depending on your backend
         password: formData.password,
       });
+
+      
       alert("Registration successful! Please login.");
       navigate("/LogIn");
     } catch (error) {

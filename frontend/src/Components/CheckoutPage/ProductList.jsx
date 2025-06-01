@@ -1,5 +1,5 @@
 import React from "react";
-import products from "./product"; // path depende kung nasaan 'products.js'
+import products from "./products"; // path depende kung nasaan 'products.js'
 import { useCart } from "./CartContext";
 import Headerbar from "../Headerbar";
 

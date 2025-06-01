@@ -9,31 +9,39 @@ const CartPage = () => {
   const { cart, removeFromCart, getTotal } = useCart();
   const navigate = useNavigate();
 
-  const handleCheckout = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/api/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          items: cart,
-          total: getTotal(),
-        }),
-      });
+ const handleCheckout = async () => {
+  const token = localStorage.getItem("token");
 
-      if (response.ok) {
-        alert("Order placed successfully!");
-        navigate("/");
-      } else {
-        alert("Failed to place order.");
-      }
-    } catch (error) {
-      console.error("Checkout error:", error);
-      alert("Something went wrong.");
+  if (!token) {
+    alert("You must be logged in to proceed to checkout.");
+    navigate("/login");
+    return; 
+  }
+
+  try {
+    const response = await fetch("http://localhost:5000/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, 
+      },
+      body: JSON.stringify({
+        items: cart,
+        total: getTotal(),
+      }),
+    });
+
+    if (response.ok) {
+      alert("Order placed successfully!");
+      navigate("/");
+    } else {
+      alert("Failed to place order.");
     }
-  };
-
+  } catch (error) {
+    console.error("Checkout error:", error);
+    alert("Something went wrong.");
+  }
+};
   return (
     <div>
       <Headerbar />
